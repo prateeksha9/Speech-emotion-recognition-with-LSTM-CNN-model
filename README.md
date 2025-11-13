@@ -1,9 +1,3 @@
-Understood — here is the **clean, icon-free, GitHub-friendly README** version of your Speech Emotion Recognition report.
-
-You can paste this directly into your repository.
-
----
-
 # Speech Emotion Recognition (SER)
 
 This project explores classical machine learning, deep learning, and transformer-based methods for classifying emotions from speech. Using the RAVDESS dataset, multiple models (LSTM, CNN, CNN+LSTM, Wav2Vec2.0) were trained and evaluated to compare performance across architectures.
@@ -11,6 +5,8 @@ This project explores classical machine learning, deep learning, and transformer
 ---
 
 ## How Speech Emotion Recognition Works
+
+![](results/how_it_works.png)
 
 Speech Emotion Recognition (SER) involves extracting meaningful acoustic features from audio signals and classifying them into emotional categories. The core steps include:
 
@@ -50,15 +46,7 @@ Speech Emotion Recognition (SER) involves extracting meaningful acoustic feature
 
 ### Filename Structure
 
-| Segment | Meaning            |
-| ------- | ------------------ |
-| 03      | Audio-only         |
-| 01      | Speech             |
-| 06      | Fearful            |
-| 01      | Normal intensity   |
-| 02      | Statement (“Dogs”) |
-| 01      | First repetition   |
-| 12      | Female actor       |
+![](results/ravdess_dataset_structure.png)
 
 **Use Cases:** SER research, ML model benchmarking, emotion classification tasks.
 
@@ -70,10 +58,14 @@ Speech Emotion Recognition (SER) involves extracting meaningful acoustic feature
 
 ### Audio Visualization
 
+![](results/visualization_step_1.png)
+
 * Plotted waveforms and spectrograms
 * Observed silent regions and amplitude variations
 
 ### Audio Preprocessing Steps
+
+![](results/visualization_step_2.png)
 
 * Silence trimming using `librosa.effects.trim()` (20 dB threshold)
 * Normalization using `librosa.util.normalize()`
@@ -94,6 +86,8 @@ Extracted features included:
 * MFCCs (Mel-Frequency Cepstral Coefficients)
 * Delta and Delta-Delta MFCCs (temporal derivatives)
 * Mel Spectrograms (time–frequency representation)
+
+![](results/benefits.png)
 
 These features were used for training CNN, LSTM, and hybrid architectures.
 
@@ -131,10 +125,13 @@ Training settings:
 
 ## A. LSTM Model
 
+![](results/lstm.png)
 * Parameters: 305,864
 * Batch size: 36
 * Epochs: 30
 
+
+![](results/lstm_results.png)
 | Metric         | Score  |
 | -------------- | ------ |
 | Train Accuracy | 21.61% |
@@ -150,9 +147,13 @@ Training settings:
 
 ## B. CNN Model
 
+![](results/cnn_model.png)
+
 * Parameters: 166,088
 * Batch size: 36
 * Epochs: 23
+
+![](results/cnn_performance.png)
 
 | Metric         | Score  |
 | -------------- | ------ |
@@ -169,9 +170,13 @@ Training settings:
 
 ## C. CNN + LSTM Hybrid Model (Best Performing)
 
+![](results/cnn_lstm.png)
+
 * Parameters: 377,448
 * Batch size: 36
 * Epochs: 23
+
+![](results/cnn_lstm_result.png)
 
 | Metric         | Score  |
 | -------------- | ------ |
@@ -209,6 +214,8 @@ The hybrid CNN+LSTM architecture shows a clear advantage.
 
 ## Performance
 
+![](results/wave2vec_result.png)
+
 | Metric         | Score  |
 | -------------- | ------ |
 | Train Accuracy | 100%   |
@@ -245,14 +252,3 @@ Future improvements may include:
 * Better augmentation and balancing strategies
 
 This project demonstrates the complexity of SER tasks and the importance of robust modeling techniques for real-world emotion recognition applications.
-
----
-
-If you'd like, I can also prepare:
-
-* A “How to Run” section
-* Folder structure
-* Training instructions
-* Environment setup section
-
-Just tell me.
